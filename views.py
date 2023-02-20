@@ -86,7 +86,7 @@ def chat(request):
 
 
 # def generate_response(inp):
-#     openai.api_key="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"
+#     openai.api_key=""
 #     response = openai.Completion.create(
 #      model="text-davinci-003",
 #      prompt=inp,
