@@ -1,0 +1,23 @@
+.fix{
+    width: 50%;
+    box-sizing: border-box;
+    border: 3px solid black;
+    resize: none;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: large;
+    overflow: hidden;
+}
+.btn{
+    position: relative;
+    bottom: 25px;
+}
+.res{
+    width: 50%;
+    margin: auto;
+    white-space: pre-wrap;
+    overflow: hidden;
+    justify-content: center;
+}

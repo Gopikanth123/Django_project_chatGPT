@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+  <head>
+    <title>ChatGPT Web Interface</title>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Comatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/gptcss.css'%}">
+    <style>
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+      }
+      
+      .logo {
+        float: left;
+        padding-top: 8px;
+      }
+      
+      .menu {
+        float: right;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      
+      .menu li {
+        display: inline-block;
+      }
+      
+      .menu li a {
+        display: block;
+        padding: 10px 20px;
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#" style="color:white;">ChatGPT</a>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </nav>
+    
+  
+    <h1 style="text-align:center;">ChatGPT</h1>
+    <form action="chat" method="POST" style="text-align:center;">
+        {% csrf_token %}
+      <label for="message"><h3>Message:</h3></label>
+      <div style="display:flexbox;">
+      <textarea id="message" name="message"  placeholder="type your query here" class="fix"></textarea>
+      &ensp;&ensp;
+      <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+    <div style="text-align:center;">
+      <label for="message"><h3>Response:</h3></label><br>
+      <div id="response" class="res" style="width:50%; word-wrap: break-word;">
+        {{ response }}
+      </div>
+    </div>
+  <script type="text/javascript">
+    textarea = document.querySelector("#message");
+    textarea.addEventListener('input', autoResize, false);
+          
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    }
+  </script>
+</body>
+</html>

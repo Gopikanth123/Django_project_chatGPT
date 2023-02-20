@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Registration Page</title>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Comatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1 style="text-align:center;">Registration</h1>
+    <form method="POST" style="text-align:center;">
+      {% csrf_token %}
+      <label for="username"><h3>Username:</h3></label>
+      <input id="username" name="username" type="text" placeholder="Enter your username"><br><br>
+      <label for="email"><h3>Email:</h3></label>
+      <input id="email" name="email" type="email" placeholder="Enter your email"><br><br>
+      <label for="password1"><h3>Password:</h3></label>
+      <input id="password1" name="password1" type="password" placeholder="Enter password"><br><br>
+      <label for="password2"><h3>Confirm Password:</h3></label>
+      <input id="password2" name="password2" type="password" placeholder="Re-enter password"><br><br>
+      <button type="submit" class="btn">Submit</button><br><br>
+    </form>
+    <center>
+    <a href="{% url 'login' %}"> <button>Login</button> </a>
+    </center>
+    <div style="text-align: center;">
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+  </body>
+</html>
