@@ -1,1 +1,1 @@
-# Django_project
+# Django_project_chatGPT
